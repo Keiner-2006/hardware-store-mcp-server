@@ -1,26 +1,26 @@
 {
-  "name": "hardware-store-mcp-server",
-  "version": "1.0.0",
-  "description": "MCP Server for Hardware Store Inventory and Sales Management",
+  "name": "ferreteria-mcp-server",
+  "version": "1.1.0",
+  "description": "Servidor MCP para la gestión de inventario y ventas de la Ferretería Keiner-2006, integrado con protección JWT.",
   "type": "module",
   "bin": {
-    "hardware-store-mcp-server": "./dist/main.js"
+    "ferreteria-mcp-server": "./dist/main.js"
   },
   "scripts": {
     "build": "tsc && npm run make-executable",
-    "make-executable": "node -e \"const fs=require('fs');const path='dist/main.js';let content=fs.readFileSync(path,'utf8');if(!content.startsWith('#!/usr/bin/env node')){fs.writeFileSync(path,'#!/usr/bin/env node\\n'+content)}\"",
+    "make-executable": "node -e \"import fs from 'fs'; const p='dist/main.js'; const c=fs.readFileSync(p,'utf8'); if(!c.startsWith('#!')){fs.writeFileSync(p,'#!/usr/bin/env node\\n'+c)}\" --input-type=module",
     "start": "node dist/main.js",
     "dev": "node --loader ts-node/esm src/main.ts",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
     "mcp",
-    "hardware-store",
+    "ferreteria",
     "inventory",
     "sales",
-    "automation"
+    "jwt"
   ],
-  "author": "",
+  "author": "Keiner-2006",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.25.3",
