@@ -1,1 +1,8 @@
-export const config = {\n    apiBaseUrl: process.env.API_BASE_URL || 'https://localhost:7108/api',\n    apiKey: process.env.API_KEY || '',\n    apiToken: process.env.API_TOKEN || '',\n};\n
+// Ya no importamos dotenv aquí para evitar logs innecesarios
+// Las variables se cargarán mediante la bandera --env-file de Node
+
+export const config = {
+    apiBaseUrl: process.env.API_BASE_URL || 'https://localhost:7085/api',
+    jwtToken: process.env.JWT_TOKEN || '',
+    apiKey: process.env.API_KEY || '',
+};
