@@ -1,27 +1,26 @@
 {
-  "name": "ferreteria-mcp-server",
-  "version": "1.1.0",
-  "description": "Servidor MCP para la gestión de inventario y ventas de la Ferretería Keiner-2006, integrado con protección JWT.",
+  "name": "mcp-server-ferreteria",
+  "version": "1.0.0",
+  "description": "MCP Server para API de Ferretería",
   "type": "module",
   "bin": {
-    "ferreteria-mcp-server": "./dist/main.js"
+    "mcp-server-ferreteria": "./dist/main.js"
   },
   "scripts": {
     "build": "tsc && npm run make-executable",
-    "make-executable": "node -e \"import fs from 'fs'; const p='dist/main.js'; const c=fs.readFileSync(p,'utf8'); if(!c.startsWith('#!')){fs.writeFileSync(p,'#!/usr/bin/env node\\n'+c)}\" --input-type=module",
+    "make-executable": "node -e \"const fs=require('fs');const path='dist/main.js';if(fs.existsSync(path)){let content=fs.readFileSync(path,'utf8');if(!content.startsWith('#!/usr/bin/env node')){fs.writeFileSync(path,'#!/usr/bin/env node\\n'+content)}}\"",
     "start": "node dist/main.js",
-    "dev": "node --loader ts-node/esm src/main.ts",
+    "dev": "tsx src/main.ts",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
     "mcp",
     "ferreteria",
-    "inventory",
-    "sales",
-    "jwt"
+    "inventory"
   ],
-  "author": "Keiner-2006",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.28.1",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.25.3",
     "axios": "^1.13.2",
@@ -29,8 +28,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@types/node": "^25.0.10",
-    "ts-node": "^10.9.2",
+    "@types/node": "^25.2.3",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }

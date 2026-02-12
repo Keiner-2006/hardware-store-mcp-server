@@ -1,4 +1,27 @@
-node_modules
-dist
+# Dependencias
+node_modules/
+pnpm-lock.yaml
+
+# Build
+dist/
+
+# Variables de entorno (contiene credenciales sensibles)
 .env
+.env.local
+.env.*.local
+
+# Logs
 *.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
